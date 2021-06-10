@@ -18,18 +18,10 @@ object Substract extends {val op = "-"} with BinaryOp
 object Mulitiply extends {val op = "*"} with BinaryOp
 object Divide extends {val op = "/"} with BinaryOp
 
-object Main extends App {
 
-  def eval(str: String): Int = str match {
-    case Add(expr1,expr2) => eval(expr1) + eval(expr2)
-    case Substract(expr1,expr2) => eval(expr1) + eval(expr2)
-    case Mulitiply(expr1,expr2) => eval(expr1) + eval(expr2)
-    case Divide(expr1,expr2) => eval(expr1) + eval(expr2)
-    case _ => str.toInt
-  }
-   
+object Bracket {
   def matchBracket(str: String): Option[(Int,Int)] = {
-    val left = str.indexOf("(")
+    val left = str.indexOf('(')
     if (left > 0) {
       val stack = Stack[Char]()
       val remaining = str.substring(left + 1)
@@ -49,6 +41,70 @@ object Main extends App {
       None
   }
 
-  println(eval("4*3-2/2"))
-  println(matchBracket("1+2+(3*5)+3+3*(3+(3+5))"))
+  def apply(part_1: String, expr: String, part_2:String) = part_1 + '(' + expr + ')' + part_2
+  
+  def unapply(str: String): Option[(String,String,String)] = {
+    Bracket.matchBracket(str) match {
+      case Some((left: Int, right: Int)) => {
+        val part_1 = if (left == 0) "" else str.substring(0,left)
+        val expr = str.substring(left + 1, right)
+        val part_2 = if (right == str.length - 1) "" else str.substring(right + 1)
+        
+        Some(part_1, expr, part_2)
+
+      } 
+      case _ => None
+    }
+  }
 }
+
+class Rational (n:Int, d:Int) {
+  require(d!=0)
+  private val g =gcd(n.abs,d.abs)
+  val numer = n/g
+  val denom = d/g
+  override def toString = numer + "/" +denom
+  def +(that:Rational)  =
+    new Rational(
+      numer * that.denom + that.numer * denom,
+      denom * that.denom
+    )
+
+  def -(that:Rational)  =
+    new Rational(
+      numer * that.denom - that.numer* denom,
+      denom * that.denom
+    )
+
+  def * (that:Rational) =
+    new Rational( numer * that.numer, denom * that.denom)
+
+  def / (that:Rational) =
+    new Rational( numer * that.denom, denom * that.numer)
+
+  def this(n:Int) = this(n,1)
+  private def gcd(a:Int,b:Int):Int =
+    if(b==0) a else gcd(b, a % b)
+}
+
+
+object Main extends App {
+
+  def eval(str: String): Rational = str match {
+    case Bracket(part1,expr,part2) => eval(part1 + eval(expr) + part2)
+    case Add(expr1,expr2) => eval(expr1) + eval(expr2)
+    case Substract(expr1,expr2) => eval(expr1) - eval(expr2)
+    case Mulitiply(expr1,expr2) => eval(expr1) * eval(expr2)
+    case Divide(expr1,expr2) => eval(expr1) / eval(expr2)
+    case _ => new Rational(str.trim().toInt,1)
+  }
+   
+  println(eval("1+2+(3*5)+3+3*(3+(3+5))"))
+  println(eval("5*(5-1/5)"))
+  println(eval("4*6"))
+  println(eval("4*6+3*3+5/7"))
+}
+
+
+
+
