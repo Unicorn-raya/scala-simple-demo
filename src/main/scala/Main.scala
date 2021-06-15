@@ -143,15 +143,26 @@ object Main extends App {
 
     def solve0(xs: List[(Double,Any,Any,Any)]): Unit =
       xs match {
-        case x::Nil => if(isZero(x._1 - n) &&)
+        case x::Nil => if(isZero(x._1 - n) && !buf.contains(toStr(x))) {
+          buf += toStr(x)
+          println(buf.last)
+        }
+
+        case _ => for {x @ (v1,_,_,_) <- xs; val ys = xs.diff(List(x))
+                       y @ (v2,_,_,_) <- ys; val rs = ys.diff(List(y))}
+                       {
+                         solve0((v1+v2,x,y,'+')::rs)
+                         solve0((v1-v2,x,y,'-')::rs)
+                         solve0((v1*v2,x,y,'*')::rs)
+                         if(!isZero(v2))
+                            solve0((v1/v2,x,y,'/')::rs)
+                       }
       }
-
-
-
-
-  } 
-
-
+      solve0(vs.map{v => (v.toDouble,null,null,null)})
+  }
+  println("test solve: ")
+  println(solve(List(5,5,5,1)))
+  println(solve(List(3,3,8,8))) 
 }
 
 

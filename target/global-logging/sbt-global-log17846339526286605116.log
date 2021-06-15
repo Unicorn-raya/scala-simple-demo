@@ -1,0 +1,16 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(d3ab8ec0-1b17-438f-b6c5-1dd235bd34d1), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: bloop.integrations.sbt.Offloader$$anon$1@173b1af1, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /mnt/c/Users/Ray_Zhang/Desktop/24/target/scala-2.13/classes ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/Main.scala:113:18: non-variable type argument Double in type pattern (Double, Any, Any, Any) is unchecked since it is eliminated by erasure[0m
+[0m[[0m[33mwarn[0m] [0m[0m      case(_,v1: (Double,Any,Any,Any),v2: (Double,Any,Any,Any),op) =>[0m
+[0m[[0m[33mwarn[0m] [0m[0m                 ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/Main.scala:113:43: non-variable type argument Double in type pattern (Double, Any, Any, Any) is unchecked since it is eliminated by erasure[0m
+[0m[[0m[33mwarn[0m] [0m[0m      case(_,v1: (Double,Any,Any,Any),v2: (Double,Any,Any,Any),op) =>[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                          ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m2 deprecations (since 2.10.0)[0m
+[0m[[0m[33mwarn[0m] [0m[0m6 deprecations (since 2.13.0)[0m
+[0m[[0m[33mwarn[0m] [0m[0m8 deprecations in total; re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0m5 warnings found[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 7 s, completed Jun 15, 2021, 11:44:30 AM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
