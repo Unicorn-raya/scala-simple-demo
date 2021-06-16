@@ -1,10 +1,16 @@
-[0m[[0m[33mwarn[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/Main.scala:113:18: non-variable type argument Double in type pattern (Double, Any, Any, Any) is unchecked since it is eliminated by erasure[0m
-[0m[[0m[33mwarn[0m] [0m[0m      case(_,v1: (Double,Any,Any,Any),v2: (Double,Any,Any,Any),op) =>[0m
-[0m[[0m[33mwarn[0m] [0m[0m                 ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/Main.scala:113:43: non-variable type argument Double in type pattern (Double, Any, Any, Any) is unchecked since it is eliminated by erasure[0m
-[0m[[0m[33mwarn[0m] [0m[0m      case(_,v1: (Double,Any,Any,Any),v2: (Double,Any,Any,Any),op) =>[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                          ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m2 deprecations (since 2.10.0)[0m
-[0m[[0m[33mwarn[0m] [0m[0m6 deprecations (since 2.13.0)[0m
-[0m[[0m[33mwarn[0m] [0m[0m8 deprecations in total; re-run with -deprecation for details[0m
-[0m[[0m[33mwarn[0m] [0m[0m5 warnings found[0m
+[0m[[0m[31merror[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/solve.scala:3:7: BinaryOp is already defined as trait BinaryOp[0m
+[0m[[0m[31merror[0m] [0m[0mtrait BinaryOp{[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/solve.scala:14:7: Rational is already defined as class Rational[0m
+[0m[[0m[31merror[0m] [0m[0mclass Rational (n:Int, d:Int) {[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/solve.scala:44:8: Bracket is already defined as object Bracket[0m
+[0m[[0m[31merror[0m] [0m[0mobject Bracket{[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/solve.scala:81:8: Divide is already defined as object Divide[0m
+[0m[[0m[31merror[0m] [0m[0mobject Divide  extends {val op="/"} with BinaryOp[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/mnt/c/Users/Ray_Zhang/Desktop/24/src/main/scala/solve.scala:82:8: Add is already defined as object Add[0m
+[0m[[0m[31merror[0m] [0m[0mobject Add  extends {val op="+"} with BinaryOp[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m5 errors found[0m

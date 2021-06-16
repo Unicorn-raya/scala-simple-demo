@@ -1,5 +1,5 @@
 import scala.collection.mutable.Stack
-
+ 
 trait BinaryOp{
   val op: String
   def apply(expr1: String, expr2: String) = expr1 + op + expr2
@@ -163,8 +163,21 @@ object Main extends App {
   println("test solve: ")
   println(solve(List(5,5,5,1)))
   println(solve(List(3,3,8,8))) 
+  
+  // def permutations(l: List[Int]): List[List[Int]] = {
+  //   l match {
+  //     case Nil  => List(List())
+  //     case (head :: tail) => 
+  //       for (p0 <- permutations(tail);i<-0 to (p0.length); (xs,ys)=p0.splitAt(i)) 
+  //          yield xs ::: List(head)::: ys
+  //   }
+  // }
+  // println(permutations(List(1,2,3)).mkString("\n"))
+  // println(permutations(List(1,1,3)).mkString("\n"))
+  // println(permutations(List(1,2,3)).distinct.mkString("\n"))
+  // println(permutations(List(1,1,3)).distinct.mkString("\n"))
+  //use  List(1,2,3,4).permutation.mkString('n')
+
+
 }
-
-
-
 
